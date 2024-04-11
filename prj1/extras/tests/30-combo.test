@@ -1,0 +1,21 @@
+//complex combinations
+
+//use destructuring to extract (x1, y1), (x2, y2), (x3, y3)
+//coordinates of the vertices of a triangle.
+const [ {x: x1, y: y1 },
+        {x: x2, y: y2 },
+	{x: x3, y: y3 }
+      ] = triangle;
+      
+let {
+  vertex_a: [x1, y1],
+  vertex_b: [x2, y2],
+  vertex_c: [x3, y3]
+} = triangle;
+
+let [
+  { name: name1, kids: [kid_11, kid_12], age: age1 },
+  { name: name2, kids: [kid_21, kid_22], age: age2 }
+] = nextCouple;
+
+const [ {a, b: [ {c: [d, e], x}, c ] }, z ] = garbageComplex;

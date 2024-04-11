@@ -1,0 +1,80 @@
+[
+  {
+    "decl": "const",
+    "id": "triangle",
+    "struct": [
+      {
+        "x": "x1",
+        "y": "y1"
+      },
+      {
+        "x": "x2",
+        "y": "y2"
+      },
+      {
+        "x": "x3",
+        "y": "y3"
+      }
+    ]
+  },
+  {
+    "decl": "let",
+    "id": "triangle",
+    "struct": {
+      "vertex_a": [
+        "x1",
+        "y1"
+      ],
+      "vertex_b": [
+        "x2",
+        "y2"
+      ],
+      "vertex_c": [
+        "x3",
+        "y3"
+      ]
+    }
+  },
+  {
+    "decl": "let",
+    "id": "nextCouple",
+    "struct": [
+      {
+        "age": "age1",
+        "kids": [
+          "kid_11",
+          "kid_12"
+        ],
+        "name": "name1"
+      },
+      {
+        "age": "age2",
+        "kids": [
+          "kid_21",
+          "kid_22"
+        ],
+        "name": "name2"
+      }
+    ]
+  },
+  {
+    "decl": "const",
+    "id": "garbageComplex",
+    "struct": [
+      {
+        "a": "a",
+        "b": [
+          {
+            "c": [
+              "d",
+              "e"
+            ],
+            "x": "x"
+          },
+          "c"
+        ]
+      },
+      "z"
+    ]
+  }
+]

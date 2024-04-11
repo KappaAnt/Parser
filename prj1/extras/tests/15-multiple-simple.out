@@ -1,0 +1,12 @@
+[
+  {
+    "decl": "const",
+    "id": "y",
+    "struct": "x"
+  },
+  {
+    "decl": "let",
+    "id": "b",
+    "struct": "a"
+  }
+]

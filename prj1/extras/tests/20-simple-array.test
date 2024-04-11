@@ -1,0 +1,6 @@
+// this file contains multiple destructuring of simple arrays
+
+const [a, id, len_] =
+  some_long_identifier1;
+
+let [x, _, y] = z;

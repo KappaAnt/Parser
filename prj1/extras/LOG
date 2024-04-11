@@ -1,0 +1,109 @@
+# empty input
+$ echo '   ' | ./decls.sh
+[]
+
+# empty input with comment; typed ^D to indicate EOF
+$ ./decls.sh
+
+// here is a comment
+
+[]
+
+# show actual output without whitespace
+$ echo 'const [a, b, c] = d;' | ./decls.sh
+[{"decl":"const","struct":["a","b","c"],"id":"d"}]
+
+# use jq -S . to pretty-print output.
+#   -S sorts keys in json objects
+$ echo 'const [a, b, c] = d;' | ./decls.sh | jq -S .
+[
+  {
+    "decl": "const",
+    "id": "d",
+    "struct": [
+      "a",
+      "b",
+      "c"
+    ]
+  }
+]
+
+$ ./decls.sh | jq -S .
+const {b: b, c: d} = a;
+let [x, y, z] = some_long_id;
+
+[
+  {
+    "decl": "const",
+    "id": "a",
+    "struct": {
+      "b": "b",
+      "c": "d"
+    }
+  },
+  {
+    "decl": "let",
+    "id": "some_long_id",
+    "struct": [
+      "x",
+      "y",
+      "z"
+    ]
+  }
+]
+
+# nested destructuring
+$ ./decls.sh | jq -S .
+// some complex garbage
+let { a: [b, {c}], d: {a: [x, y]}} = z;
+[
+  {
+    "decl": "let",
+    "id": "z",
+    "struct": {
+      "a": [
+        "b",
+        {
+          "c": "c"
+        }
+      ],
+      "d": {
+        "a": [
+          "x",
+          "y"
+        ]
+      }
+    }
+  }
+]
+
+# missing semi-colon
+$ echo 'const a=b' | ./decls.sh
+error: expecting ';' but got 'EOF'
+const a=b
+         ^
+# incorrect terminating delimiter
+$ echo 'const [a}=b;' | ./decls.sh
+error: expecting ']' but got '}'
+const [a}=b;
+        ^
+
+# extra comma (misleading error message)
+$ echo 'const [a,]=b;' | ./decls.sh
+error: expecting '{' but got ']'
+const [a,]=b;
+         ^
+
+# bad ID
+$ echo 'const [a]=1b;' | ./decls.sh
+error: expecting 'ID' but got '1'
+const [a]=1b;
+          ^
+
+# using reserved word as ID
+$ echo 'const [a]=let;' | ./decls.sh
+error: expecting 'ID' but got 'RESERVED'
+const [a]=let;
+          ^
+
+$

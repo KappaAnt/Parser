@@ -1,0 +1,14 @@
+
+
+// this file contains multiple simple declarations
+
+let {
+  do,
+  for,
+  id_longLong53
+} = js;
+
+const { asdf } = s42;
+
+  
+    

@@ -1,0 +1,20 @@
+[
+  {
+    "decl": "const",
+    "id": "some_long_identifier1",
+    "struct": [
+      "a",
+      "id",
+      "len_"
+    ]
+  },
+  {
+    "decl": "let",
+    "id": "z",
+    "struct": [
+      "x",
+      "_",
+      "y"
+    ]
+  }
+]

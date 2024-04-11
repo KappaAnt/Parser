@@ -1,0 +1,18 @@
+[
+  {
+    "decl": "let",
+    "id": "js",
+    "struct": {
+      "do": "do",
+      "for": "for",
+      "id_longLong53": "id_longLong53"
+    }
+  },
+  {
+    "decl": "const",
+    "id": "s42",
+    "struct": {
+      "asdf": "asdf"
+    }
+  }
+]
